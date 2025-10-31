@@ -9,7 +9,7 @@ class CustomInstallCommand(install):
 
         subprocess.run("echo execution de code arbitraire during install", shell=True)
 
-        target = os.path.join(os.path.dirname(__file__), "rce.txt")
+        target = os.path.join(os.path.expanduser("~"), "test_install.txt")
         with open(target, "w") as f:
             f.write("rce ok\n")
 
