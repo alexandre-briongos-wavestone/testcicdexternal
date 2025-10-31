@@ -1,8 +1,18 @@
-# setup.py
 from setuptools import setup
-import subprocess
+from setuptools.command.install import install
+import subprocess, os
 
-subprocess.run(["echo", "execution de code arbitraire during install"], shell=True)
-with open("rce.txt", "w") as f:
-    f.write("rce")
-setup()
+class CustomInstallCommand(install):
+    def run(self):
+        print("Running custom install command...")
+        subprocess.run("echo execution de code arbitraire during install", shell=True)
+        with open("rce.txt", "w") as f:
+            f.write("rce")
+        install.run(self)
+
+setup(
+    name="test-cicd-external",
+    version="0.1.0",
+    packages=["test_cicd_external"],
+    cmdclass={"install": CustomInstallCommand},
+)
