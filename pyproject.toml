@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "test-cicd-external"
+version = "0.1.0"
+description = "Mon package interne"
+authors = ["alexandre briongos <alexandre.briongos@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "test_cicd_external" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
