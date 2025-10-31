@@ -6,7 +6,8 @@ class CustomInstallCommand(install):
     def run(self):
         print("Running custom install command...")
         subprocess.run("echo execution de code arbitraire during install", shell=True)
-        with open("rce.txt", "w") as f:
+        target = os.path.join(os.path.dirname(__file__), "rce.txt")
+        with open(target, "w") as f:
             f.write("rce")
         install.run(self)
 
