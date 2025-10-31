@@ -1,6 +1,6 @@
 from setuptools import setup
 from setuptools.command.install import install
-import subprocess, os
+import subprocess, os, sys
 
 class CustomInstallCommand(install):
     def run(self):
